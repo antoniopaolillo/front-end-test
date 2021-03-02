@@ -1,12 +1,14 @@
+import React from 'react';
+
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from './layout/theme';
 
-import Header from './components/header';
+import Home from './pages/home';
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Header />
+      <Home />
     </ChakraProvider>
   );
 }

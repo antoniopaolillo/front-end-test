@@ -3,6 +3,7 @@ import Header from 'components/Header';
 import Table from 'components/Table';
 import TableContext from 'hooks/context';
 import FilterName from 'components/FilterName';
+import FilterValues from 'components/FilterValues';
 
 function Home() {
     const { request } = useContext(TableContext);
@@ -11,6 +12,7 @@ function Home() {
     <>
       <Header />
       <FilterName />
+      <FilterValues />
       <Table />
     </>
   );

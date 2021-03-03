@@ -37,7 +37,7 @@ function Table() {
         {currentData?.map((planet: any) => (
           <Tr key={planet.name}>
             {tags.map((tag) => (
-              <Td>{planet[tag]}</Td>
+              <Td key={planet[tag].diameter}>{planet[tag]}</Td>
             ))}
           </Tr>
         ))}

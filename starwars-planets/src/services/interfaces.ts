@@ -2,16 +2,18 @@ export interface Props {
   children: React.ReactNode;
 }
 
+export interface InterfaceNumericFilters {
+  column: string;
+  comparison: string;
+  value: string;
+}
+
 export interface ContextTableInterface {
   filters: {
     filterByName: {
       name: string;
     };
-    filterByNumericValues: Array<{
-      column: string;
-      comparison: string;
-      value: string;
-    }>;
+    filterByNumericValues: Array<InterfaceNumericFilters>;
   };
   initialData: PlanetInterface[] | null;
   filteredData: PlanetInterface[] | null;

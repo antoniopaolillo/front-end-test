@@ -19,6 +19,7 @@ function arrayOfTags(data: any): string[] {
 function Table() {
   const { initialData, filteredData } = useContext(TableContext);
   const currentData = filteredData || initialData;
+
   if (currentData?.length === 0)
     return <Text>Não há planetas com essas informações!</Text>;
 
@@ -35,7 +36,7 @@ function Table() {
       </Thead>
       <Tbody>
         {currentData?.map((planet: any) => (
-          <Tr key={planet.name}>
+          <Tr key={planet.terrain}>
             {tags.map((tag) => (
               <Td key={planet[tag].diameter}>{planet[tag]}</Td>
             ))}

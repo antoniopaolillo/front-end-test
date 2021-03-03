@@ -1,8 +1,49 @@
-import {  PlanetInterface } from './interfaces';
+import { InterfaceNumericFilters, PlanetInterface } from './interfaces';
 
-export function filterByName(data: PlanetInterface[], nameFilter: string): PlanetInterface[] {
-  if (nameFilter) {
-    return data.filter((planet: PlanetInterface) => planet.name.includes(nameFilter));
+function filterByName(
+  data: PlanetInterface[],
+  nameFilter: string
+): PlanetInterface[] {
+    return data.filter((planet: PlanetInterface) =>
+      planet.name.includes(nameFilter)
+    );
   }
-  return data;
+
+function filterByValues(data: any, filter: InterfaceNumericFilters) {
+  const { column, comparison, value } = filter;
+  switch (comparison) {
+    case 'maior que':
+      return data.filter(
+        (planet: any) =>
+          planet[column] > Number(value) && planet[column] !== 'unknown'
+      );
+    case 'menos que':
+      return data.filter(
+        (planet: any) =>
+          planet[column] < Number(value) && planet[column] !== 'unknown'
+      );
+    case 'igual':
+      return data.filter(
+        (planet: any) =>
+          planet[column] === value && planet[column] !== 'unknown'
+      );
+    default:
+      return false;
+  }
+}
+
+export default function finalData(
+  data: PlanetInterface[],
+  filtersActive: InterfaceNumericFilters[],
+  nameFilter: string
+): PlanetInterface[] {
+  let filteredData = data;
+  if (filtersActive.length > 0) {
+    filteredData = filtersActive.reduce((acc, filter, index) => {
+      const array = index === 0 ? data : acc;
+      return filterByValues(array, filter);
+    }, []);
+  }
+  filteredData = filterByName(filteredData, nameFilter);
+  return filteredData;
 }

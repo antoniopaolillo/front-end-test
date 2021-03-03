@@ -1,20 +1,5 @@
 import React from 'react';
-
-interface ContextTableInterface {
-  filters: {
-    filterByName: {
-      name: string;
-    };
-    filterByNumericValues: Array<{
-      column: string;
-      comparison: string;
-      value: string;
-    }>;
-  };
-  initialData: any | null;
-  filteredData: any | null;
-  request: { loading: boolean; error: boolean };
-}
+import { ContextTableInterface } from 'services/interfaces';
 
 const TableContext = React.createContext<ContextTableInterface>({
   filters: {
@@ -25,6 +10,7 @@ const TableContext = React.createContext<ContextTableInterface>({
   },
   filteredData: null,
   initialData: null,
+  setFilters: null,
   request: { loading: true, error: false },
 });
 

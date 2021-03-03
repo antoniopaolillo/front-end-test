@@ -1,5 +1,5 @@
-function fetchApi(setInitialData: any, setRequest: any) {
-  return fetch('https://swapi-trybe.herokuapp.com/api/planets/')
+function fetchApi(setInitialData: any, setRequest: any): void {
+  fetch('https://swapi-trybe.herokuapp.com/api/planets/')
     .then((data) => data.json())
     .then((response) => {
       setInitialData(response.results);

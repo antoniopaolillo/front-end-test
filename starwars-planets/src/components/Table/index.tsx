@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import {
   Table as ChakraTable,
-  TableCaption,
   Thead,
   Th,
   Tbody,
   Tr,
   Td,
+  Text,
 } from '@chakra-ui/react';
 import TableContext from 'hooks/context';
 
@@ -19,6 +19,9 @@ function arrayOfTags(data: any): string[] {
 function Table() {
   const { initialData, filteredData } = useContext(TableContext);
   const currentData = filteredData || initialData;
+  if (currentData?.length === 0)
+    return <Text>Não há planetas com essas informações!</Text>;
+
   const tags = arrayOfTags(currentData);
 
   return (
@@ -31,7 +34,7 @@ function Table() {
         </Tr>
       </Thead>
       <Tbody>
-        {currentData.map((planet: any) => (
+        {currentData?.map((planet: any) => (
           <Tr key={planet.name}>
             {tags.map((tag) => (
               <Td>{planet[tag]}</Td>

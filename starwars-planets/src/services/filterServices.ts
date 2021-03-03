@@ -4,10 +4,10 @@ function filterByName(
   data: PlanetInterface[],
   nameFilter: string
 ): PlanetInterface[] {
-    return data.filter((planet: PlanetInterface) =>
-      planet.name.includes(nameFilter)
-    );
-  }
+  return data.filter((planet: PlanetInterface) =>
+    planet.name.includes(nameFilter)
+  );
+}
 
 function filterByValues(data: any, filter: InterfaceNumericFilters) {
   const { column, comparison, value } = filter;
@@ -17,7 +17,7 @@ function filterByValues(data: any, filter: InterfaceNumericFilters) {
         (planet: any) =>
           planet[column] > Number(value) && planet[column] !== 'unknown'
       );
-    case 'menos que':
+    case 'menor que':
       return data.filter(
         (planet: any) =>
           planet[column] < Number(value) && planet[column] !== 'unknown'
@@ -28,7 +28,7 @@ function filterByValues(data: any, filter: InterfaceNumericFilters) {
           planet[column] === value && planet[column] !== 'unknown'
       );
     default:
-      return false;
+      return data;
   }
 }
 

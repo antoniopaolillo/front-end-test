@@ -36,8 +36,9 @@ function FilterActive() {
             w='350px'
             justifyContent='space-between'
             mb='10px'
+            key={column}
           >
-            <Text>{`${column} - ${comparison} - ${value}`}</Text>
+            <Text>{`${column} ${comparison} ${value}`}</Text>
             <Button onClick={() => deleteFilter(column, filters, setFilters)}>
               X
             </Button>

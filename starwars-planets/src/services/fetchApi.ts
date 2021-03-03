@@ -1,7 +1,14 @@
-function fetchApi() {
+function fetchApi(setInitialData: any, setRequest: any) {
   return fetch('https://swapi-trybe.herokuapp.com/api/planets/')
-    .then((response) => response.json())
-    .catch((err) => console.log(err));
+    .then((data) => data.json())
+    .then((response) => {
+      setInitialData(response.results);
+      setRequest({ loading: false, error: false });
+    })
+    .catch((err) => {
+      console.log(err);
+      setRequest({ loading: false, error: true });
+    });
 }
 
 export default fetchApi;

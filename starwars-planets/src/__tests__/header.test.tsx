@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Header from '../components/header';
+import Header from '../components/Header';
 
 describe('renders learn react link', () => {
   it('should show trybe logo and text StarWars Planetss', () => {

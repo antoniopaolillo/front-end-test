@@ -11,8 +11,9 @@ interface ContextTableInterface {
       value: string;
     }>;
   };
-  initialData: any;
-  filteredData: any;
+  initialData: any | null;
+  filteredData: any | null;
+  request: { loading: boolean; error: boolean };
 }
 
 const TableContext = React.createContext<ContextTableInterface>({
@@ -22,8 +23,9 @@ const TableContext = React.createContext<ContextTableInterface>({
     },
     filterByNumericValues: [],
   },
-  filteredData: '',
-  initialData: '',
+  filteredData: null,
+  initialData: null,
+  request: { loading: true, error: false },
 });
 
 export default TableContext;

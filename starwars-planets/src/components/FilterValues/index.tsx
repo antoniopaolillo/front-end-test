@@ -53,7 +53,7 @@ function FilterValues() {
   }
 
   return (
-    <Box mb='20px'>
+    <Box>
       <Text
         color='trybe.300'
         fontSize='25px'

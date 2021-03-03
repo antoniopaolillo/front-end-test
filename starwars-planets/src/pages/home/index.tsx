@@ -5,6 +5,7 @@ import TableContext from 'hooks/context';
 import FilterName from 'components/FilterName';
 import FilterValues from 'components/FilterValues';
 import { Box, Divider } from '@chakra-ui/react';
+import FilterActive from 'components/FiltersActive';
 
 function Home() {
   const { request } = useContext(TableContext);
@@ -13,10 +14,12 @@ function Home() {
   return (
     <>
       <Header />
-      <Box pl="20px" pr="20px">
+      <Box pl='20px' pr='20px'>
         <FilterName />
         <Divider my='10px'></Divider>
         <FilterValues />
+        <Divider my='10px'></Divider>
+        <FilterActive />
         <Divider my='10px'></Divider>
         <Table />
       </Box>

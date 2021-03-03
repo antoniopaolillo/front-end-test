@@ -4,16 +4,22 @@ import Table from 'components/Table';
 import TableContext from 'hooks/context';
 import FilterName from 'components/FilterName';
 import FilterValues from 'components/FilterValues';
+import { Box, Divider } from '@chakra-ui/react';
 
 function Home() {
-    const { request } = useContext(TableContext);
-    if(request.loading) return <>Loading</>;
+  const { request } = useContext(TableContext);
+  if (request.loading) return <>Loading</>;
+
   return (
     <>
       <Header />
-      <FilterName />
-      <FilterValues />
-      <Table />
+      <Box pl="20px" pr="20px">
+        <FilterName />
+        <Divider my='10px'></Divider>
+        <FilterValues />
+        <Divider my='10px'></Divider>
+        <Table />
+      </Box>
     </>
   );
 }

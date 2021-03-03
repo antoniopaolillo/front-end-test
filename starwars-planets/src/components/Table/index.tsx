@@ -30,7 +30,9 @@ function Table() {
       <Thead>
         <Tr>
           {tags.map((tag) => (
-            <Th key={tag}>{tag.replace('_', ' ')}</Th>
+            <Th maxW='100px' key={tag}>
+              {tag.replace('_', ' ')}
+            </Th>
           ))}
         </Tr>
       </Thead>
@@ -38,7 +40,16 @@ function Table() {
         {currentData?.map((planet: any) => (
           <Tr key={planet.terrain}>
             {tags.map((tag) => (
-              <Td key={planet[tag].diameter}>{planet[tag]}</Td>
+              <Td
+                textOverflow='ellipsis'
+                overflow='hidden'
+                whiteSpace='nowrap'
+                textTransform='capitalize'
+                maxW='100px'
+                key={planet[tag].diameter}
+              >
+                {planet[tag]}
+              </Td>
             ))}
           </Tr>
         ))}

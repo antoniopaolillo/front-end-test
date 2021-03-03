@@ -5,6 +5,8 @@ import {
   NumberInput,
   NumberInputField,
   Select,
+  Box,
+  Text,
 } from '@chakra-ui/react';
 import TableContext from 'hooks/context';
 
@@ -51,35 +53,55 @@ function FilterValues() {
   }
 
   return (
-    <Flex>
-      <Select
-        onChange={(e) => setColumn(e.target.value)}
-        w='30%'
-        value={column}
+    <Box mb='20px'>
+      <Text
+        color='trybe.300'
+        fontSize='25px'
+        borderBottom='2px solid'
+        width='250px'
+        mb='10px'
       >
-        {columnOptions(filterByNumericValues).map((column: string) => (
-          <option key={column} value={column}>
-            {column}
-          </option>
-        ))}
-      </Select>
-      <Select
-        onChange={(e) => setComparison(e.target.value)}
-        w='30%'
-        value={comparison}
-      >
-        <option value=''></option>
-        <option value='maior que'>maior que</option>
-        <option value='menor que'>menor que</option>
-        <option value='igual'>igual</option>
-      </Select>
-      <NumberInput onChange={(e) => setValue(e)} value={value}>
-        <NumberInputField />
-      </NumberInput>
-      <Button onClick={addFilter} disabled={!column || !comparison || !value}>
-        Adicionar Filtro
-      </Button>
-    </Flex>
+        Filtros Numéricos
+      </Text>
+      <Flex w='100%' justifyContent='flex-start' alignItems='flex-end'>
+        <Box w='200px'>
+          <Text>Selecione a coluna</Text>
+          <Select onChange={(e) => setColumn(e.target.value)} value={column}>
+            {columnOptions(filterByNumericValues).map((column: string) => (
+              <option key={column} value={column}>
+                {column}
+              </option>
+            ))}
+          </Select>
+        </Box>
+        <Box w='200px' ml='30px'>
+          <Text>Selecione a comparação</Text>
+          <Select
+            onChange={(e) => setComparison(e.target.value)}
+            value={comparison}
+          >
+            <option value=''></option>
+            <option value='maior que'>maior que</option>
+            <option value='menor que'>menor que</option>
+            <option value='igual'>igual</option>
+          </Select>
+        </Box>
+        <Box w='200px' ml='30px'>
+          <Text>Digite o valor</Text>
+          <NumberInput onChange={(e) => setValue(e)} value={value}>
+            <NumberInputField />
+          </NumberInput>
+        </Box>
+        <Button
+          ml='30px'
+          onClick={addFilter}
+          disabled={!column || !comparison || !value}
+          title={'Preencha todos os filtros!'}
+        >
+          Adicionar Filtro
+        </Button>
+      </Flex>
+    </Box>
   );
 }
 

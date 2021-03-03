@@ -16,9 +16,6 @@ A padronização do código segue as regras ESLint Airbnb;
 
 ---
 
-### Estrutura
-
-Todo código do projeto 
 ### Executando o projeto
 
 Para executar o projeto, basta seguir os seguintes passos:

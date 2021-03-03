@@ -21,7 +21,7 @@ Para executar o projeto, basta seguir os seguintes passos:
 1. Navegue para o local onde o projeto será clonado e execute o comando `git clone https://github.com/antoniopaolillo/front-end-test.git`;
 
 
-2. Execute o comando `cd front-end-test/starwars-planets`;
+2. Execute o comando `cd front-end-test/`;
 
 
 3. Instale as dependências utilizando o comando `npm install`;

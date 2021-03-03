@@ -11,8 +11,14 @@ O desafio desenvolvido consiste em uma lista com filtros de planetas do universo
 
 Além das tecnologias requisitadas, está sendo utilizando [TypeScript](https://www.typescriptlang.org/) como um superset do JavaScript e a biblioteca de estilização [Chakra-ui](https://chakra-ui.com/).
 
+
+A padronização do código segue as regras ESLint Airbnb;
+
 ---
 
+### Estrutura
+
+Todo código do projeto 
 ### Executando o projeto
 
 Para executar o projeto, basta seguir os seguintes passos:
@@ -28,6 +34,8 @@ Para executar o projeto, basta seguir os seguintes passos:
 
 
 4. Inicialize o projeto com `npm start`;
+
+---
 
 ### Testes
 

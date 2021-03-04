@@ -6,15 +6,18 @@ import FilterName from 'components/FilterName';
 import FilterValues from 'components/FilterValues';
 import { Box, Divider } from '@chakra-ui/react';
 import FilterActive from 'components/FiltersActive';
+import Loading from 'components/Loading';
 
 function Home() {
-  const { request } = useContext(TableContext);
-  if (request.loading) return <>Loading</>;
+  const {
+    request: { loading },
+  } = useContext(TableContext);
 
   return (
     <>
       <Header />
-      <Box pl='20px' pr='20px'>
+      {loading && <Loading />}
+      <Box pl='20px' pr='20px' opacity={loading ? 0.2 : 1}>
         <FilterName />
         <Divider my='10px'></Divider>
         <FilterValues />

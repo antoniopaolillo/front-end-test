@@ -20,9 +20,8 @@ function Table() {
   const { initialData, filteredData } = useContext(TableContext);
   const currentData = filteredData || initialData;
 
-  if (currentData?.length === 0)
+  if (!currentData || currentData?.length === 0)
     return <Text>Não há planetas com essas informações!</Text>;
-
   const tags = arrayOfTags(currentData);
 
   return (

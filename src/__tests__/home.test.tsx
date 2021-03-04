@@ -4,7 +4,6 @@ import fetchMock from 'fetch-mock';
 import { mockDefaultResponse } from 'services/testMocks';
 import Home from 'pages/home';
 import { TableProvider } from 'hooks/Provider';
-import { async } from 'q';
 
 fetchMock.mock('https://swapi-trybe.herokuapp.com/api/planets/', {
   body: mockDefaultResponse,
@@ -39,8 +38,9 @@ describe('Home Page', () => {
       const inputText = getByPlaceholderText('Digite o nome do planeta...');
 
       fireEvent.change(inputText, { target: { value: 'Al' } });
-      expect(queryByText('Bespin')).not.toBeInTheDocument();
-      await waitFor(() => {
+
+      await waitFor(async () => {
+        expect(queryByText('Bespin')).not.toBeInTheDocument();
         expect(queryByText('Alderaan')).toBeInTheDocument();
       });
     });
